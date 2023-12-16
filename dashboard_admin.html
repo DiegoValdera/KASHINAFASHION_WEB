@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png" />
+    <title>Dashboard KashinaFashion</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            color: #ffd700; /* Color dorado para el texto del perfil del usuario */
+        }
+
+        .logout-btn {
+            margin-left: 10px;
+            cursor: pointer;
+            color: #ff4500; /* Color rojo para el botón de cerrar sesión */
+        }
+
+        nav {
+            background-color: #555;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        section {
+            margin: 20px;
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #555;
+            color: #fff;
+        }
+        .btn-flotante {
+	    font-size: 13px;
+        font-family: TrajanPro-Bold;
+	    text-transform: uppercase;
+	    color: #ffffff;
+	    border-radius: 5px;
+	    letter-spacing: 2px;
+	    background-color: rgba(0, 0, 0, 0.3);
+	    padding: 18px 30px;
+	    position: fixed;
+	    bottom: 40px;
+	    right: 40px;
+	    transition: all 300ms ease 0ms;
+	    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	    z-index: 99;
+        }
+        .btn-flotante:hover {
+	    color: #628C80;
+	    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+	   
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Panel de ventas Kashina Fashion</h1>
+    <div class="user-profile">
+        <span>Bienvenido, [Anghelo Rengifo]</span>
+        <span class="logout-btn" onclick="cerrarSesion()">Cerrar Sesión</span>
+    </div>
+</header>
+<script>
+    function cerrarSesion() {
+        window.location.href = "index.html";
+        alert('Sesión cerrada');
+    }
+
+    function mostrarSeccion(seccionId) {
+        var secciones = document.querySelectorAll('section');
+        secciones.forEach(function(seccion) {
+            seccion.style.display = 'none';
+        });
+
+        var seccionSeleccionada = document.getElementById(seccionId);
+        seccionSeleccionada.style.display = 'block';
+    }
+</script>
+
+<!-- Menú de navegación -->
+<nav>
+    <ul>
+        <li><a href="javascript:void(0);" onclick="mostrarSeccion('ventaProductos')">Venta de productos</a></li>
+        <li><a href="javascript:void(0);" onclick="mostrarSeccion('stockProductos')">Stock de productos</a></li>
+        <li><a href="javascript:void(0);" onclick="mostrarSeccion('personalAutorizado')">Personal Autorizado</a></li>
+    </ul>
+</nav>
+<section id="ventaProductos">
+    <h2>Venta de productos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Dirección de envío</th>
+                <th>Fecha de venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample Data (Replace with dynamic data from your backend) -->
+            <tr>
+                <td>1</td>
+                <td>Polera Jordan Flight Fleece</td>
+                <td>1</td>
+                <td>S/ 237</td>
+                <td>Villa el Salvador</td>
+                <td>2023-11-12</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Zapatillas Air Jordan 4 Retro</td>
+                <td>1</td>
+                <td>S/ 999</td>
+                <td>San Juan de Miraflores</td>
+                <td>2023-11-14</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>Polo Jordan Jumpman Crew</td>
+                <td>1</td>
+                <td>S/ 139</td>
+                <td>Chorrillos</td>
+                <td>2023-11-14</td>
+            </tr>
+
+
+            <tr>
+                <td>4</td>
+                <td>Polera Jordan Flight MVP</td>
+                <td>1</td>
+                <td>S/ 279</td>
+                <td>Lince</td>
+                <td>2023-11-14</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>Zapatillas Air Jordan 1 Mid</td>
+                <td>1</td>
+                <td>S/ 629</td>
+                <td>Olivos</td>
+                <td>2023-11-14</td>
+            </tr>
+            <!-- Add more rows as needed -->
+
+            <tr>
+                <td>6</td>
+                <td>Zapatillas Air Jordan 3 Retro</td>
+                <td>1</td>
+                <td>S/ 999</td>
+                <td>Ate</td>
+                <td>2023-11-14</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Zapatillas Air Jordan 1 Retro High</td>
+                <td>1</td>
+                <td>S/ 899</td>
+                <td>Villa Maria</td>
+                <td>2023-11-14</td>
+            </tr>
+
+            <tr>
+                <td>8</td>
+                <td>Polo Jordan Flight Essentails</td>
+                <td>1</td>
+                <td>S/ 111</td>
+                <td>Ancon</td>
+                <td>2023-11-14</td>
+            </tr>
+
+
+            <tr>
+                <td>9</td>
+                <td>Polo Jordan Jumpman Crew</td>
+                <td>1</td> 
+                <td>S/ 139</td>
+                <td>Magdalena</td>
+                <td>2023-11-14</td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>Polera Jordan Dri-FIT Sport</td>
+                <td>1</td>
+                <td>S/ 359</td>
+                <td>Surco</td>
+                <td>2023-11-14</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section>
+    <h2>Stock de productos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del producto</th>
+                <th>Cantidad disponible</th>
+                <th>Precio unitario</th>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Sección de Stock de productos -->
+<section id="stockProductos">
+    <h2>Stock de productos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del producto</th>
+                <th>Cantidad disponible</th>
+                <th>Precio unitario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Filas de datos de stock -->
+            <!-- ... -->
+            <tr>
+                <td>1</td>
+                <td>POLERA JORDAN FLIGHT FLEECE</td>
+                <td>20</td>
+                <td>S/ 237</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>POLERA JORDAN FLIGHT MVP</td>
+                <td>30</td>
+                <td>S/ 359</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>ZAPATILLAS AIR JORDAN 4 RETRO</td>
+                <td>23</td>
+                <td>S/ 999</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>ZAPATILLAS AIR JORDAN 1 MID</td>
+                <td>38</td>
+                <td>S/ 629</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>POLO JORDAN FLIGHT ESSENTIAILS </td>
+                <td>17</td>
+                <td>S/ 111</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+        <!--Personal Autorizado-->
+        <section id="personalAutorizado">
+            <h2>Personal Autorizado para administrar en panel de control</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre del administrador</th>
+                        <th>Cargo</th>
+                        <th>Correo Institucional</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Filas de datos de stock -->
+                    <!-- ... -->
+                    <tr>
+                        <td>1</td>
+                        <td>Rengifo  Anghelo Lucas</td>
+                        <td>CEO</td>
+                        <td>arengifor@autonoma.edu.pe</td>
+                       
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Montoya Llanos Brayan</td>
+                        <td>JEFE DE DISTRIBUCIÓN</td>
+                        <td>bmontoya@autonoma.edu.pe</td>
+                       
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Rojas Rivas Sebastian</td>
+                        <td>COORDINADOR DE DESPACHO</td>
+                        <td>srivas@autonoma.edu.pe</td>
+                       
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Valdera Jacinto Diego</td>
+                        <td>COMMUNITY MANAGER</td>
+                        <td>svalderad13@autnoma.edu.pe</td>
+                       
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Calderon Clarens Elias </td>
+                        <td>ASISTENTE DE COMERCIAL</td>
+                        <td>ecalderon@autonoma.edu.pe</td>
+                       
+                    </tr>
+
+                   
+                
+            
+                </tbody>
+            </table>
+        </section>
+
+</body>
+</html>
+
+</body>
+</html>
